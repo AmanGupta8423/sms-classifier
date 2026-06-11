@@ -5,6 +5,11 @@ import string
 import pickle 
 from nltk.stem.porter import PorterStemmer
 import sklearn
+for resource in ['punkt', 'punkt_tab', 'stopwords']:
+    try:
+        nltk.download(resource, quiet=True)
+    except:
+        pass
 
 ps = PorterStemmer()
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
